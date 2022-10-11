@@ -60,6 +60,8 @@ params_modl <- list(
   )
 
 # run the model for these parameters
+# p_model_drivers contain precipitation and temperature
+# Output contains the transpiration data
 output <- rsofun::runread_pmodel_f(
   p_model_drivers,
   par = params_modl
@@ -93,13 +95,13 @@ ggplot() +
     ),
     colour = "red"
   ) +
-  geom_line(
-    data = validation_data,
-    aes(
-      date,
-      gpp
-    )
-  ) +
+  # geom_line(
+  #   data = validation_data,
+  #   aes(
+  #     date,
+  #     gpp
+  #   )
+  # ) +
   labs(
     x = "Date",
     y = "GPP"
