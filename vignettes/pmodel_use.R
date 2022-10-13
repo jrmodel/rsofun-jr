@@ -95,13 +95,13 @@ ggplot() +
     ),
     colour = "red"
   ) +
-  # geom_line(
-  #   data = validation_data,
-  #   aes(
-  #     date,
-  #     gpp
-  #   )
-  # ) +
+  geom_line(
+    data = validation_data,
+    aes(
+      date,
+      gpp
+    )
+  ) +
   labs(
     x = "Date",
     y = "GPP"
