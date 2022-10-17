@@ -35,7 +35,8 @@ pars <- list(par = c(
 #' 
 ## ----------------------------------------------------------------------
 library(rsofun)
-
+# P_model_drivers include precipitaton, temperature in forcing. soilstress/tempstress in params_simu
+# p_model drivers includes whc in site info
 p_model_drivers
 
 p_model_validation
@@ -61,7 +62,7 @@ params_modl <- list(
 
 # run the model for these parameters
 # p_model_drivers contain precipitation and temperature
-# Output contains the transpiration data
+# Output contains the transpiration data, Vc max also whc in the parameter
 output <- rsofun::runread_pmodel_f(
   p_model_drivers,
   par = params_modl
@@ -71,6 +72,9 @@ output <- rsofun::runread_pmodel_f(
 #' ### plotting output
 #' 
 #' We can now visualize both the model output and the measured values together.
+#' 
+#' 
+#' 
 #' 
 ## ----------------------------------------------------------------------
 library(dplyr)
@@ -107,6 +111,69 @@ ggplot() +
     y = "GPP"
   )
 
+# warm up:visualize some important parametrs(transpiration)
+# 1 visualize the transpiration
+model_data2 <- output %>%
+  filter(sitename == "FR-Pue") %>%
+  tidyr::unnest(data)
+
+# validation_data <- p_model_validation %>%
+#   tidyr::unnest(data)
+
+ggplot() +
+  geom_line(
+    data = model_data2,
+    aes(
+      date,
+      transp
+    ),
+    colour = "green"
+  ) +
+  # geom_line(
+  #   data = validation_data,
+  #   aes(
+  #     date,
+  #     gpp
+  # #   )
+  # ) +
+  labs(
+    x = "Date",
+    y = "Transpiration"
+  )
+
+# warm up:visualize some important parametrs
+# 2 visualize the precipitation
+model_data3 <- p_model_drivers %>%
+  filter(sitename == "FR-Pue") %>%
+  tidyr::unnest(forcing)
+
+# validation_data <- p_model_validation %>%
+#   tidyr::unnest(data)
+
+ggplot() +
+  geom_line(
+    data = model_data3,
+    aes(
+      date,
+      prec
+    ),
+    colour = "blue"
+  ) +
+  # geom_line(
+  #   data = validation_data,
+  #   aes(
+  #     date,
+  #     gpp
+  # #   )
+  # ) +
+  labs(
+    x = "Date",
+    y = "Precipitation"
+  )
+
+
+
+
 #' 
 #' ## Calibrating model parameters
 #' 
@@ -141,11 +208,11 @@ settings <- list(
 ## ----eval=FALSE--------------------------------------------------------
 #> # calibrate the model and
 #> # optimize free parameters
-#> pars <- calib_sofun(
-#>     drivers = p_model_drivers,
-#>     obs = p_model_validation,
-#>     settings = settings
-#>   )
+pars <- calib_sofun(
+    drivers = p_model_drivers,
+    obs = p_model_validation,
+    settings = settings
+ )
 
 #' 
 #' When successful the optimized parameters can be used to run subsequent modelling efforts, in this case slightly improving the model fit over a more global parameter set.
