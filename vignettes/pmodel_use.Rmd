@@ -23,7 +23,8 @@ pars <- list(par = c(
     soilm_par_a     = 2.75687824,
     soilm_par_b     = 1.68140444,
     tau_acclim_tempstress = 7.35259044,
-    par_shape_tempstress  = 0.09863961
+    par_shape_tempstress  = 0.09863961,
+    whc                   = 200
   ))
 ```
 
@@ -48,7 +49,6 @@ These are real data from the French FR-Pue fluxnet site. We can use these data t
 With all data prepared we can run the model using `runread_pmodel_f()`. This function takes the nested data structure and runs the model site by site, returning nested model output results matching the input drivers.
 
 ```{r}
-
 # optimized parameters from previous
 # work
 params_modl <- list(
