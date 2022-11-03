@@ -101,11 +101,11 @@ cost_rmse_kphio_whc <- function(
   ## For calibrating quantum yield efficiency only
   params_modl <- list(
     kphio           = par[[1]],
-    soilm_par_a     = 1.0,
-    soilm_par_b     = 0.0,
+    soilm_par_a     = par[[2]],
+    soilm_par_b     = par[[3]],
     tau_acclim_tempstress = 10,
     par_shape_tempstress  = 0.0,
-    whc           = par[[2]],
+    whc           = par[[4]]
   )
   
   # run the model (with the previous model parameter list)
