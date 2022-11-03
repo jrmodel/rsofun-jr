@@ -109,7 +109,7 @@ ggplot() +
 
 ## Calibrating model parameters
 
-To optimize new parameters based upon driver data and a validation dataset we must first specify an optimization strategy and settings, as well as parameter ranges.
+To optimize new parameters based upon driver data and a validation dataset we must first specify an optimization strategy and settings, as well as parameter ranges. Make sure that when adding your custom cost function (argument `metric`), run the package documentation again (`devtools::document(roclets = c('rd', 'namespace'))`).
 
 ```{r}
 settings <- list(
