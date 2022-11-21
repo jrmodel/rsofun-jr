@@ -129,6 +129,8 @@ settings <- list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
     soilm_par_a = list(lower = 0.1, uppper =1, init = 0.33349283),
     soilm_par_b = list(lower = 0, uppper =5, init = 1.45602286),
+    tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
+    par_shape_tempstress  = list(0,1),
     whc   = list(lower=30, upper=500, init = 200)
     
     )
@@ -159,6 +161,8 @@ params_modl <- list(
     kphio = pars$par["kphio"],
     soilm_par_a = pars$par["soilm_par_a"],
     soilm_par_b = pars$par["soilm_par_b"],
+    tau_acclim_tempstress =  pars$par["tau_acclim_tempstress"],
+    par_shape_tempstress  =  pars$par["par_shape_tempstress"],
     whc = pars$par["whc"]
     )
 
