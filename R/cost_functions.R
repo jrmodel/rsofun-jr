@@ -103,9 +103,9 @@ cost_rmse_kphio_whc <- function(
     kphio           = par[[1]],
     soilm_par_a     = par[[2]],
     soilm_par_b     = par[[3]],
-    tau_acclim_tempstress = 10,
-    par_shape_tempstress  = 0.0,
-    whc           = par[[4]]
+    tau_acclim_tempstress = par[[4]],
+    par_shape_tempstress  = par[[5]],
+    whc           = par[[6]]
   )
   
   # run the model (with the previous model parameter list)
