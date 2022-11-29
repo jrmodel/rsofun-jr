@@ -122,8 +122,8 @@ settings <- list(
   control = list(
     sampler = "DEzs",
     settings = list(
-      burnin = 500,
-      iterations = 1500
+      burnin = 500,      # increase this once it's no longer experimental
+      iterations = 1500  # increase this once it's no longer experimental
     )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
@@ -132,7 +132,6 @@ settings <- list(
     tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
     par_shape_tempstress  = list(0,1),
     whc   = list(lower=30, upper=500, init = 200)
-    
     )
 )
 ```
