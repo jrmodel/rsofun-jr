@@ -97,7 +97,7 @@ cost_rmse_kphio_whc <- function(
   # predefine variables for CRAN check compliance
   sitename <- data <- NULL
   
-  ## execute model for this parameter set
+  ## execute model for this parameter set tttwwwww
   ## For calibrating quantum yield efficiency only
   params_modl <- list(
     kphio           = par[[1]],
