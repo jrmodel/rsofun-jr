@@ -124,7 +124,7 @@ settings <- list(
   control = list(
     sampler = "DEzs",
     settings = list(
-      burnin = 500,      # increase this once it's no longer experimental
+      burnin = 1000,      # increase this once it's no longer experimental
       iterations = 1500  # increase this once it's no longer experimental
     )),
   par = list(
