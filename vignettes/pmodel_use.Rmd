@@ -24,7 +24,8 @@ pars <- list(par = c(
     soilm_par_b     = 1.68140444,
     tau_acclim_tempstress = 7.35259044,
     par_shape_tempstress  = 0.09863961,
-    whc                   = 200
+    whc                   = 200,
+    kalb_sw               = 0.17
   ))
 ```
 
@@ -57,7 +58,8 @@ params_modl <- list(
     soilm_par_b     = 1.45602286,
     tau_acclim_tempstress = 10,
     par_shape_tempstress  = 0.0,
-    whc                   = 200.0
+    whc                   = 200.0,
+    kalb_sw               = 0.17
   )
 
 # run the model for these parameters
@@ -133,7 +135,8 @@ settings <- list(
     soilm_par_b = list(lower = 0, uppper =5, init = 1.45602286),
     tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
     par_shape_tempstress  = list(0,1),
-    whc   = list(lower=30, upper=500, init = 200)
+    whc   = list(lower=30, upper=500, init = 200),
+    kalb_sw  = list(lower=0.05, upper=0.5, init = 0.17)
     )
 )
 ```
