@@ -167,7 +167,8 @@ params_modl <- list(
     soilm_par_b = pars$par["soilm_par_b"],
     tau_acclim_tempstress =  pars$par["tau_acclim_tempstress"],
     par_shape_tempstress  =  pars$par["par_shape_tempstress"],
-    whc = pars$par["whc"]
+    whc = pars$par["whc"],
+    kalb_sw = pars$par["kalb_sw"]
     )
 
 # run the model for these parameters

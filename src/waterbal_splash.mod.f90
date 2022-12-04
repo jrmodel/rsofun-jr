@@ -51,7 +51,7 @@ module md_waterbal
   ! real :: kGsc              ! solar constant, W/m^2 (Kopp & Lean, 2011)
   real :: kw                ! entrainment factor (Lhomme, 1997; Priestley & Taylor, 1972)
   real :: komega            ! longitude of perihelion for 2000 CE, degrees (Berger, 1978)
-
+   
   real :: whc               !water holding capacity, mm (bucket depth)
 
   !----------------------------------------------------------------
@@ -565,7 +565,7 @@ contains
     kA       = 107.0
     
     ! shortwave albedo (Federer, 1968)
-    kalb_sw  = 0.17
+    kalb_sw  = myinterface%params_calib%kalb_sw 
     
     ! visible light albedo (Sellers, 1985) xxx planetary albedo? xxx
     kalb_vis = 0.03
