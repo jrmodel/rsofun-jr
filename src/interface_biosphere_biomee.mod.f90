@@ -75,6 +75,7 @@ module md_interface_biomee
     real    :: kphio     ! calibratable
     real    :: phiRL     ! calibratable
     real    :: LAI_light ! calibratable
+    real    :: kalb_sw   ! calibratable 
   end type paramstype_species
 
   type inittype_cohort 
