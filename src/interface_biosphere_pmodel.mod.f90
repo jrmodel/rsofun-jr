@@ -23,6 +23,7 @@ module md_interface_pmodel
     real :: whc
     real :: kalb_sw
     real :: kw
+    real :: kCw
   end type paramstype_calib  
 
 

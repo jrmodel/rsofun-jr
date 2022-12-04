@@ -577,7 +577,7 @@ contains
     kc       = 0.25
     
     ! supply constant, mm/hr (Federer, 1982)
-    kCw      = 1.05 
+    kCw      = myinterface%params_calib%kCw
     
     ! angular coefficient of transmittivity (Linacre, 1968)
     kd       = 0.5
