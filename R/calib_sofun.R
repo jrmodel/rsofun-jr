@@ -62,6 +62,7 @@ calib_sofun <- function(
     settings$par$par_shape_tempstress <- NA
     settings$par$whc <- NA
     settings$par$kalb_sw <- NA
+    settings$par$kw <- NA
     return(settings$par)
   }
   

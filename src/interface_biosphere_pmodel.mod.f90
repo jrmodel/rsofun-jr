@@ -22,6 +22,7 @@ module md_interface_pmodel
     real :: par_shape_tempstress
     real :: whc
     real :: kalb_sw
+    real :: kw
   end type paramstype_calib  
 
 

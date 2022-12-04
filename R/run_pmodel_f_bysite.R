@@ -280,7 +280,8 @@ run_pmodel_f_bysite <- function(
       as.numeric(params_modl$tau_acclim_tempstress),
       as.numeric(params_modl$par_shape_tempstress),
       as.numeric(params_modl$whc),
-      as.numeric(params_modl$kalb_sw)
+      as.numeric(params_modl$kalb_sw),
+      as.numeric(params_modl$kw)
       )
 
     # Soil texture as matrix (layer x texture parameter)

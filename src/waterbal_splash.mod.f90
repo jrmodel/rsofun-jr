@@ -592,7 +592,7 @@ contains
     ! kGsc     = 1360.8
     
     ! entrainment factor (Lhomme, 1997; Priestley & Taylor, 1972)
-    kw       = 0.26
+    kw       = myinterface%params_calib%kw 
     
     ! longitude of perihelion for 2000 CE, degrees (Berger, 1978)
     komega   = 283.0
