@@ -47,7 +47,8 @@ p_model_validation
 load("F:/test/rsofun-jr/data/ddf_FR-Pue.RData")
 ddf = ddf %>%
   dplyr::select(date, LE_F_MDS)
-p_model_validation = p_model_validation %>%
+ddf$LE_F_MDS  = ddf$LE_F_MDS * 86400              # change units from heat flux W/m2 to J(per day)
+p_model_validation$data[[1]] = p_model_validation$data[[1]] %>%
   left_join(ddf, by = "date")
 
 ```
