@@ -133,13 +133,13 @@ settings <- list(
   metric              = create_cost_rmse_pmodel(
                           params_modl = params_modl, # fix param values
                           setup = 'BRC',
-                          method = 'BayesianTools'
+                          method = 'Gensa'
                           ),
   control = list(
     sampler = "DEzs",
     settings = list(
-      burnin = 20000,      # increase this once it's no longer experimental
-      iterations = 60000  # increase this once it's no longer experimental
+      burnin = 1000,      # increase this once it's no longer experimental
+      iterations = 1500  # increase this once it's no longer experimental
     )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
