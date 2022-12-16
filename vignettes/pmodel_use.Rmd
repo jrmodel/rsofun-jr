@@ -129,12 +129,8 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 
 ```{r}
 settings <- list(
-  method              = "BayesianTools",
-  metric              = create_cost_rmse_pmodel(
-                          params_modl = params_modl, # fix param values
-                          setup = 'BRC',
-                          method = 'Gensa'
-                          ),
+  method              = "Gensa",
+  metric              =  cost_mae_ET,
   control = list(
     sampler = "DEzs",
     settings = list(
