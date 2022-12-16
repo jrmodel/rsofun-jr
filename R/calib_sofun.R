@@ -76,7 +76,7 @@ calib_sofun <- function(
     # create bounds
     lower <- unlist(lapply(settings$par, function(x) x$lower))
     upper <- unlist(lapply(settings$par, function(x) x$upper))
-    pars <- unlist(lapply( settings$par, function(x) x$init))
+    pars <- unlist(lapply(settings$par, function(x) x$init))
     
     out_optim <- GenSA::GenSA(
       par   = pars,

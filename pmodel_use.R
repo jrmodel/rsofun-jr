@@ -139,11 +139,11 @@ settings <- list(
     )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
-    soilm_par_a = list(lower = 0.1, uppper =1, init = 0.33349283),
-    soilm_par_b = list(lower = 0, uppper =5, init = 1.45602286),
-    tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
-    par_shape_tempstress  = list(lower=0, upper=1, init = 0.5),
-    whc   = list(lower=30, upper=500, init = 200),
+    soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
+    soilm_par_b = list(lower = 0, upper =6.0, init = 1.45602286),
+    tau_acclim_tempstress = list(lower = 1, upper =40.01, init = 10.0),
+    par_shape_tempstress  = list(lower=0, upper=2.0, init = 0.5),
+    whc   = list(lower=30, upper=500.0, init = 200),
     kalb_sw  = list(lower=0.05, upper=1, init = 0.17),
     kw       = list(lower=0, upper=1, init = 0.26),
     kCw       = list(lower=0, upper=5, init = 1.05)
