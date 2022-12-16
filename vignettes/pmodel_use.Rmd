@@ -104,7 +104,7 @@ ggplot() +
     data = model_data,
     aes(
       date,
-      gpp
+      latenth
     ),
     colour = "red",
     alpha = 0.8
@@ -113,13 +113,13 @@ ggplot() +
     data = validation_data,
     aes(
       date,
-      gpp
+      LE_F_MDS
     ),
     alpha = 0.8
   ) +
   labs(
     x = "Date",
-    y = "GPP"
+    y = "Latent energy"
   )
 ```
 
@@ -142,7 +142,7 @@ settings <- list(
     soilm_par_a = list(lower = 0.1, uppper =1, init = 0.33349283),
     soilm_par_b = list(lower = 0, uppper =5, init = 1.45602286),
     tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
-    par_shape_tempstress  = list(0,1),
+    par_shape_tempstress  = list(lower=0, upper=1, init = 0.5),
     whc   = list(lower=30, upper=500, init = 200),
     kalb_sw  = list(lower=0.05, upper=1, init = 0.17),
     kw       = list(lower=0, upper=1, init = 0.26),
