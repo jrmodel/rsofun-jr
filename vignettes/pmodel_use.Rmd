@@ -115,24 +115,28 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 
 ```{r}
 settings <- list(
-  method              = "bayesiantools",
-  metric              = create_cost_rmse_pmodel(
-                          params_modl = params_modl, # fix param values
-                          setup = 'BRC',
-                          method = 'BayesianTools'
-                          ),
-  control = list(
-    sampler = "DEzs",
-    settings = list(
-      burnin = 500,      # increase this once it's no longer experimental
-      iterations = 1500  # increase this once it's no longer experimental
-    )),
+  method                = "GenSA",
+  metric                = cost_rmse_kphio_whc,
+  control               = list(maxit = 100),
+  # method              = "bayesiantools",
+  # 
+  # metric              = create_cost_rmse_pmodel(
+  #                         params_modl = params_modl, # fix param values
+  #                         setup = 'BRC',
+  #                         method = 'BayesianTools'
+  #                         ),
+  # control = list(
+  #   sampler = "DEzs",
+  #   settings = list(
+  #     burnin = 500,      # increase this once it's no longer experimental
+  #     iterations = 1500  # increase this once it's no longer experimental
+  #   )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
-    soilm_par_a = list(lower = 0.1, uppper =1, init = 0.33349283),
-    soilm_par_b = list(lower = 0, uppper =5, init = 1.45602286),
-    tau_acclim_tempstress = list(lower = 1, uppper =30, init = 10),
-    par_shape_tempstress  = list(0,1),
+    soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
+    soilm_par_b = list(lower = 0, upper =5, init = 1.45602286),
+    tau_acclim_tempstress = list(lower = 1, upper =30, init = 10),
+    par_shape_tempstress  = list(lower =0 ,upper = 1, init = 0.33),
     whc   = list(lower=30, upper=500, init = 200)
     )
 )
