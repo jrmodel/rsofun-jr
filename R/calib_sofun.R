@@ -87,6 +87,7 @@ calib_sofun <- function(
       obs = obs,
       drivers = drivers
     )
+    return(out_optim)
   } 
   
   #--- Bayesiantools ----
