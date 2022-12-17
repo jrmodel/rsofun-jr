@@ -131,7 +131,7 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control             = list( maxit = 10),
+  control             = list( maxit = 100),
   # control = list(
   #   sampler = "DEzs",
   #   settings = list(
@@ -201,7 +201,7 @@ model_data_new <- output_new %>%
     data = model_data,
     aes(
       date,
-      gpp
+      latenth
     ),
     colour = "red",
     alpha = 0.8
@@ -210,7 +210,7 @@ model_data_new <- output_new %>%
     data = validation_data,
     aes(
       date,
-      gpp
+      LE_F_MDS
     ),
     alpha = 0.8
   ) +
@@ -218,14 +218,14 @@ model_data_new <- output_new %>%
     data = model_data_new,
     aes(
       date,
-      gpp
+      latenth
     ),
     colour = "blue",
     alpha = 0.7
   ) +
   labs(
     x = "Date",
-    y = "GPP"
+    y = "Latent Energy"
   )
 ```
 
