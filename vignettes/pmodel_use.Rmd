@@ -140,15 +140,19 @@ settings <- list(
   #   )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
-    soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
-    soilm_par_b = list(lower = 0.001, upper =5, init = 1.45602286),
-    tau_acclim_tempstress = list(lower = 1, upper =30, init = 10),
-    par_shape_tempstress  = list(lower=0.001, upper=1, init = 0.5),
+    # soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
+    # soilm_par_b = list(lower = 0.001, upper =5, init = 1.45602286),
+    # tau_acclim_tempstress = list(lower = 1, upper =30, init = 10),
+    # par_shape_tempstress  = list(lower=0.001, upper=1, init = 0.5),
     whc   = list(lower=30, upper=500, init = 200),
-    kalb_sw  = list(lower=0.05, upper=1, init = 0.17),
+    kalb_sw  = list(lower=0.05, upper=0.4, init = 0.17),
     kw       = list(lower=0.001, upper=1, init = 0.26),
     kCw       = list(lower=0.001, upper=5, init = 1.05)
-    )
+    # soilm_par_a     = 0.33349283,
+    # soilm_par_b     = 1.45602286,
+    # tau_acclim_tempstress = 10,
+    # par_shape_tempstress  = 0.0
+        )
 )
 ```
 
@@ -174,14 +178,18 @@ When successful the optimized parameters can be used to run subsequent modelling
 # reformatting the parameter list
 params_modl <- list(
     kphio = pars$par["kphio"],
-    soilm_par_a = pars$par["soilm_par_a"],
-    soilm_par_b = pars$par["soilm_par_b"],
-    tau_acclim_tempstress =  pars$par["tau_acclim_tempstress"],
-    par_shape_tempstress  =  pars$par["par_shape_tempstress"],
+    # soilm_par_a = pars$par["soilm_par_a"],
+    # soilm_par_b = pars$par["soilm_par_b"],
+    # tau_acclim_tempstress =  pars$par["tau_acclim_tempstress"],
+    # par_shape_tempstress  =  pars$par["par_shape_tempstress"],
     whc = pars$par["whc"],
     kalb_sw = pars$par["kalb_sw"],
     kw      = pars$par["kw"],
-    kCw      = pars$par["kCw"]
+    kCw      = pars$par["kCw"],
+    soilm_par_a     = 0.33349283,
+    soilm_par_b     = 1.45602286,
+    tau_acclim_tempstress = 10,
+    par_shape_tempstress  = 0.0
     )
 
 # run the model for these parameters
