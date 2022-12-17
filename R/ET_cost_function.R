@@ -107,7 +107,7 @@ cost_mae_ET <- function(
   # Calculate cost (RMSE)
   cost <- sqrt( mean( (df$LE_obs - df$LE_mod )^2, na.rm = TRUE ) )
   
-  if (inverse) cost <- 1.0 / cost
+  
   
   return(cost)
 }
