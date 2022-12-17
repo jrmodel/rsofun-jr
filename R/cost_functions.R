@@ -63,7 +63,7 @@ cost_rmse_kphio <- function(
   # Calculate cost (RMSE)
   cost <- sqrt( mean( (df$gpp - df$gpp_mod )^2, na.rm = TRUE ) )
   
-  if (inverse) cost <- 1.0 / cost
+ # if (inverse) cost <- 1.0 / cost
   
   return(cost)
 }

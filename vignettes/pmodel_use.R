@@ -181,18 +181,19 @@ ggplot() +
 #' 
 ## ----------------------------------------------------------------------
 settings <- list(
-  method              = "bayesiantools",
+  method              = "GenSA",
   targetvars          = c("gpp"),
   timescale           = list(targets_obs = "y"),
   metric              = cost_rmse_kphio,
   dir_results         = "./",
   name                = "ORG",
-  control = list(
-    sampler = "DEzs",
-    settings = list(
-      burnin = 500,
-      iterations = 1500
-    )),
+  control             = list(maxit =100),
+  # control = list(
+  #   sampler = "DEzs",
+  #   settings = list(
+  #     burnin = 500,
+  #     iterations = 1500
+  #   )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05)
     )
