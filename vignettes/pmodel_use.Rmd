@@ -131,12 +131,13 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control = list(
-    sampler = "DEzs",
-    settings = list(
-      burnin = 10,      # increase this once it's no longer experimental
-      iterations = 15  # increase this once it's no longer experimental
-    )),
+  control             = list( maxit = 100),
+  # control = list(
+  #   sampler = "DEzs",
+  #   settings = list(
+  #     burnin = 10,      # increase this once it's no longer experimental
+  #     iterations = 15  # increase this once it's no longer experimental
+  #   )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
     soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),

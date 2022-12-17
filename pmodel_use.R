@@ -131,12 +131,13 @@ ggplot() +
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control = list(
-    sampler = "DEzs",
-    settings = list(
-      burnin = 1000,      # increase this once it's no longer experimental
-      iterations = 1500  # increase this once it's no longer experimental
-    )),
+  control             = list(maxit = 100),
+  # control = list(
+  #   sampler = "DEzs",
+  #   settings = list(
+  #     burnin = 1000,      # increase this once it's no longer experimental
+  #     iterations = 1500  # increase this once it's no longer experimental
+  #   )),
   par = list(
     kphio = list(lower=0.04, upper=0.2, init = 0.05),
     soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
