@@ -131,7 +131,7 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control             = list( maxit = 100),
+  control             = list( maxit = 160),
   # control = list(
   #   sampler = "DEzs",
   #   settings = list(
@@ -139,13 +139,13 @@ settings <- list(
   #     iterations = 15  # increase this once it's no longer experimental
   #   )),
   par = list(
-    kphio = list(lower=0.04, upper=0.2, init = 0.05),
+    # kphio = list(lower=0.04, upper=0.2, init = 0.05),
     # soilm_par_a = list(lower = 0.1, upper =1, init = 0.33349283),
     # soilm_par_b = list(lower = 0.001, upper =5, init = 1.45602286),
     # tau_acclim_tempstress = list(lower = 1, upper =30, init = 10),
     # par_shape_tempstress  = list(lower=0.001, upper=1, init = 0.5),
     whc   = list(lower=30, upper=500, init = 200),
-    kalb_sw  = list(lower=0.05, upper=0.4, init = 0.17),
+    kalb_sw  = list(lower=0.05, upper=0.25, init = 0.17),
     kw       = list(lower=0.001, upper=1, init = 0.26),
     kCw       = list(lower=0.001, upper=5, init = 1.05)
     # soilm_par_a     = 0.33349283,
@@ -186,6 +186,7 @@ params_modl <- list(
     kalb_sw = pars$par["kalb_sw"],
     kw      = pars$par["kw"],
     kCw      = pars$par["kCw"],
+    kphio    = 0.04998,
     soilm_par_a     = 0.33349283,
     soilm_par_b     = 1.45602286,
     tau_acclim_tempstress = 10,

@@ -69,11 +69,12 @@ cost_mae_ET <- function(
   ## execute model for this parameter set tttwwwww
   ## For calibrating quantum yield efficiency only
   params_modl <- list(
-    kphio           = par[[1]],
-    whc           = par[[2]],
-    kalb_sw       = par[[3]],
-    kw            = par[[4]],
-    kCw           = par[[5]],
+    # kphio           = par[[1]],
+    whc           = par[[1]],
+    kalb_sw       = par[[2]],
+    kw            = par[[3]],
+    kCw           = par[[4]],
+    kphio         = 0.04998,
     soilm_par_a     = 0.33349283,
     soilm_par_b     = 1.45602286,
     tau_acclim_tempstress = 10,
