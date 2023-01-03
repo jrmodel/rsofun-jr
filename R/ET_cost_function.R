@@ -70,7 +70,7 @@ cost_mae_ET <- function(
   ## For calibrating quantum yield efficiency only
   params_modl <- list(
     # kphio           = par[[1]],
-    whc           = par[[1]],
+    rzwsc           = par[[1]],
     kalb_sw       = par[[2]],
     kw            = par[[3]],
     kCw           = par[[4]],
