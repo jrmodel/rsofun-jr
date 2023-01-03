@@ -51,6 +51,9 @@ ddf$LE_F_MDS  = ddf$LE_F_MDS * 86400              # change units from heat flux 
 p_model_validation$data[[1]] = p_model_validation$data[[1]] %>%
   left_join(ddf, by = "date")
 
+p_model_drivers$site_info[[1]] <- p_model_drivers$site_info[[1]] |>
+  rename(rzwsc = whc)
+
 ```
 
 These are real data from the French FR-Pue fluxnet site. Information about data structure, variable names, and their meaning and units can be found in the reference pages of `p_model_drivers` and `p_model_validation`. We can use these data to run the model, together with observations of GPP we can also parameterize `pmodel` parameters. To get your raw data into the structure used within `rsofun`, please see R packages [ingestr](https://github.com/computationales/ingestr) and [FluxDataKit](https://github.com/computationales/FluxDataKit).
@@ -68,7 +71,7 @@ params_modl <- list(
     soilm_par_b     = 1.45602286,
     tau_acclim_tempstress = 10,
     par_shape_tempstress  = 0.0,
-    whc                   = 200.0,
+    rzwsc                  = 200.0,
     kalb_sw               = 0.17,
     kw                    = 0.26,
     kCw                   = 1.05

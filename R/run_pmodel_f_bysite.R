@@ -279,7 +279,7 @@ run_pmodel_f_bysite <- function(
       as.numeric(params_modl$soilm_par_b),
       as.numeric(params_modl$tau_acclim_tempstress),
       as.numeric(params_modl$par_shape_tempstress),
-      as.numeric(params_modl$whc),
+      as.numeric(params_modl$rzwsc),
       as.numeric(params_modl$kalb_sw),
       as.numeric(params_modl$kw),
       as.numeric(params_modl$kCw)
@@ -318,7 +318,7 @@ run_pmodel_f_bysite <- function(
       longitude                 = as.numeric(site_info$lon),
       latitude                  = as.numeric(site_info$lat),
       altitude                  = as.numeric(site_info$elv),
-      whc                       = as.numeric(site_info$whc),
+      rzwsc                     = as.numeric(site_info$rzwsc),
       soiltexture               = soiltexture,
       n                         = n,
       par                       = par, 
