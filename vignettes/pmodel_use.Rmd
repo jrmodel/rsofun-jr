@@ -134,7 +134,7 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control             = list( maxit = 160),
+  control             = list( maxit = 60),
   # control = list(
   #   sampler = "DEzs",
   #   settings = list(
@@ -148,7 +148,7 @@ settings <- list(
     # tau_acclim_tempstress = list(lower = 1, upper =30, init = 10),
     # par_shape_tempstress  = list(lower=0.001, upper=1, init = 0.5),
     rzwsc  = list(lower=30, upper=500, init = 200),
-    kalb_sw  = list(lower=0.05, upper=0.25, init = 0.17),
+    kalb_sw  = list(lower=0.00, upper=1, init = 0.17),
     kw       = list(lower=0.001, upper=1, init = 0.26),
     kCw       = list(lower=0.001, upper=5, init = 1.05)
     # soilm_par_a     = 0.33349283,

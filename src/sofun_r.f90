@@ -33,7 +33,7 @@ contains
     longitude,                 &      
     latitude,                  &     
     altitude,                  &     
-    whc,                       &
+    rzwsc,                       &
     soiltexture,               &
     nt,                        &
     par,                       &
@@ -76,7 +76,7 @@ contains
     real(kind=c_double),  intent(in) :: longitude
     real(kind=c_double),  intent(in) :: latitude
     real(kind=c_double),  intent(in) :: altitude
-    real(kind=c_double),  intent(in) :: whc
+    real(kind=c_double),  intent(in) :: rzwsc
     real(kind=c_double),  dimension(4,nlayers_soil), intent(in) :: soiltexture   ! soil texture (rows: sand, clay, organic, gravel; columns: layers from top)
     integer(kind=c_int),  intent(in) :: nt ! number of time steps
     real(kind=c_double),  dimension(9), intent(in) :: par  ! free (calibratable) model parameters
@@ -143,8 +143,8 @@ contains
     ! myinterface%soilparams = getsoil( soiltexture )  xxx copy soilparams to tile%soil%param in subroutine getparams_tile -> getparams_soil
     myinterface%soiltexture(:,:) = real( soiltexture )
 
-    ! Overwrite whc
-    !myinterface%whc_prescr = real( whc )    ***remove
+    ! Overwrite root zone water storage capacity
+    myinterface%rzwsc = real( rzwsc)    !***remove
 
     !----------------------------------------------------------------
     ! GET CALIBRATABLE MODEL PARAMETERS (so far a small list)
@@ -154,7 +154,7 @@ contains
     myinterface%params_calib%soilm_par_b           = real(par(3))
     myinterface%params_calib%tau_acclim_tempstress = real(par(4))
     myinterface%params_calib%par_shape_tempstress  = real(par(5))
-    myinterface%params_calib%whc                   = real(par(6))
+    myinterface%params_calib%rzwsc                 = real(par(6))
     myinterface%params_calib%kalb_sw               = real(par(7))
     myinterface%params_calib%Kw                    = real(par(8))
     myinterface%params_calib%KCw                   = real(par(9))

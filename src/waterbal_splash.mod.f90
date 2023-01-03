@@ -52,7 +52,7 @@ module md_waterbal
   real :: kw                ! entrainment factor (Lhomme, 1997; Priestley & Taylor, 1972)
   real :: komega            ! longitude of perihelion for 2000 CE, degrees (Berger, 1978)
    
-  real :: whc               !water holding capacity, mm (bucket depth)
+  real :: rzwsc              !water holding capacity, mm (bucket depth)
 
   !----------------------------------------------------------------
   ! MODULE-SPECIFIC, PRIVATE VARIABLES
@@ -115,7 +115,7 @@ contains
     do lu=1,nlu
 
       ! Calculate evaporative supply rate, mm/h
-      sw = kCw * tile(lu)%soil%phy%wcont / whc
+      sw = kCw * tile(lu)%soil%phy%wcont / rzwsc
 
       !---------------------------------------------------------
       ! Canopy transpiration and soil evaporation
@@ -137,18 +137,18 @@ contains
       tile(lu)%soil%phy%wcont = tile(lu)%soil%phy%wcont + out_snow_rain%liquid_to_soil - tile_fluxes(lu)%canopy%daet
 
       ! Bucket model for runoff generation
-      if (tile(lu)%soil%phy%wcont > whc) then
+      if (tile(lu)%soil%phy%wcont > rzwsc) then
         ! -----------------------------------
         ! Bucket is full 
         ! -----------------------------------
         ! determine NO3 leaching fraction 
-        tile_fluxes(lu)%canopy%dfleach = 1.0 - whc / tile(lu)%soil%phy%wcont
+        tile_fluxes(lu)%canopy%dfleach = 1.0 - rzwsc / tile(lu)%soil%phy%wcont
 
         ! add remaining water to monthly runoff total
-        tile_fluxes(lu)%canopy%dro = tile(lu)%soil%phy%wcont - whc
+        tile_fluxes(lu)%canopy%dro = tile(lu)%soil%phy%wcont - rzwsc
 
         ! set soil moisture to capacity
-        tile(lu)%soil%phy%wcont = whc
+        tile(lu)%soil%phy%wcont = rzwsc
 
       else if (tile(lu)%soil%phy%wcont < 0.0) then
         ! -----------------------------------
@@ -168,7 +168,7 @@ contains
       end if
 
       ! water scalar (fraction of plant-available water holding capacity; water storage at wilting point is already accounted for in whc)
-      tile(lu)%soil%phy%wscal = tile(lu)%soil%phy%wcont / whc
+      tile(lu)%soil%phy%wscal = tile(lu)%soil%phy%wcont / rzwsc
 
     end do
 
@@ -601,7 +601,7 @@ contains
     maxmeltrate = 3.0
 
     ! water holding capacity(mm)
-    whc = myinterface%params_calib%whc  
+    rzwsc = myinterface%params_calib%rzwsc
 
   end subroutine getpar_modl_waterbal
 
