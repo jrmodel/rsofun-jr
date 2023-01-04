@@ -171,6 +171,7 @@ contains
       ! WHC = FC - PWP
       ! WSCAL = (WCONT - PWP)/ (FC - PWP)
       !tile(lu)%soil%phy%wscal = tile(lu)%soil%phy%wcont / rzwsc
+      ! I don't understand why pwp * zr
       tile(lu)%soil%phy%wscal = (tile(lu)%soil%phy%wcont - tile(lu)%soil%params%pwp * tile(lu)%soil%params%zr) &
       / tile(lu)%soil%params%rzwsc
 
