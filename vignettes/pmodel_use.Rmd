@@ -134,7 +134,7 @@ To optimize new parameters based upon driver data and a validation dataset we mu
 settings <- list(
   method              = "Gensa",
   metric              =  cost_mae_ET,
-  control             = list( maxit = 60),
+  control             = list( maxit = 30),
   # control = list(
   #   sampler = "DEzs",
   #   settings = list(
