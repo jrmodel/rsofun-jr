@@ -312,7 +312,7 @@ contains
     real, parameter :: c_ks = 4.2146   ! 4.358185
 
     ! do idx = 1, nlayers_soil
-
+      ! Top layer 
       fsand   = myinterface%soiltexture(1,1)
       fclay   = myinterface%soiltexture(2,1)
       forg    = myinterface%soiltexture(3,1)
@@ -406,7 +406,7 @@ contains
       ! VG_m = 1-(VG_n)  
       
       ! water holding capacity
-      whc_dz = (fc-pwp)*(1-fgravel)
+      whc_dz = (fc - pwp)*(1.0 - fgravel)
 
       ! add to soil paramters type
       params%fsand        = fsand

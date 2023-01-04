@@ -33,7 +33,7 @@ contains
     longitude,                 &      
     latitude,                  &     
     altitude,                  &     
-    rzwsc,                       &
+    rzwsc,                     &
     soiltexture,               &
     nt,                        &
     par,                       &
@@ -144,7 +144,7 @@ contains
     myinterface%soiltexture(:,:) = real( soiltexture )
 
     ! Overwrite root zone water storage capacity
-    myinterface%rzwsc = real( rzwsc)    !***remove
+    myinterface%rzwsc = real( rzwsc)    
 
     !----------------------------------------------------------------
     ! GET CALIBRATABLE MODEL PARAMETERS (so far a small list)
