@@ -115,7 +115,10 @@ contains
     do lu=1,nlu
 
       ! Calculate evaporative supply rate, mm/h
-      sw = kCw * tile(lu)%soil%phy%wcont / rzwsc
+      !sw = kCw * tile(lu)%soil%phy%wcont / rzwsc
+       sw = max( 0.0, &
+                kCw * (1.0 - exp(-1.0 / tile(lu)%soil%params%k_rzwsc * &
+                  (tile(lu)%soil%phy%wcont - tile(lu)%soil%params%pwp * tile(lu)%soil%params%zr))))
 
       !---------------------------------------------------------
       ! Canopy transpiration and soil evaporation
