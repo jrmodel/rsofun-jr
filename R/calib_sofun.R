@@ -64,6 +64,7 @@ calib_sofun <- function(
     settings$par$kalb_sw <- NA
     settings$par$kw <- NA
     settings$par$kCw <- NA
+    settings$par$k_rzwsc <- NA
     return(settings$par)
   }
   

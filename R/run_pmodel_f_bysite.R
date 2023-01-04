@@ -282,7 +282,8 @@ run_pmodel_f_bysite <- function(
       as.numeric(params_modl$rzwsc),
       as.numeric(params_modl$kalb_sw),
       as.numeric(params_modl$kw),
-      as.numeric(params_modl$kCw)
+      as.numeric(params_modl$kCw),
+      as.numeric(params_modl$k_rzwsc)
       )
 
     # Soil texture as matrix (layer x texture parameter)

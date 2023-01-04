@@ -24,6 +24,7 @@ module md_interface_pmodel
     real :: kalb_sw
     real :: kw
     real :: kCw
+    real :: k_rzwsc
   end type paramstype_calib  
 
 

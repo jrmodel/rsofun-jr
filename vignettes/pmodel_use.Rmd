@@ -74,7 +74,8 @@ params_modl <- list(
     rzwsc                  = 200.0,
     kalb_sw               = 0.17,
     kw                    = 0.26,
-    kCw                   = 1.05
+    kCw                   = 1.05,
+    k_rzwsc               = 0.1
   )
 
 # run the model for these parameters
@@ -150,7 +151,8 @@ settings <- list(
     rzwsc  = list(lower=30, upper=500, init = 200),
     kalb_sw  = list(lower=0.00, upper=1, init = 0.17),
     kw       = list(lower=0.001, upper=1, init = 0.26),
-    kCw       = list(lower=0.001, upper=5, init = 1.05)
+    kCw       = list(lower=0.001, upper=5, init = 1.05),
+    k_rzwsc   = list(lower = 0, upper= 10, init =0.1)
     # soilm_par_a     = 0.33349283,
     # soilm_par_b     = 1.45602286,
     # tau_acclim_tempstress = 10,
@@ -189,6 +191,7 @@ params_modl <- list(
     kalb_sw  = pars$par["kalb_sw"],
     kw       = pars$par["kw"],
     kCw      = pars$par["kCw"],
+    k_rzwsc  = pars$par["k_rzwsc"],
     kphio    = 0.04998,
     soilm_par_a     = 0.33349283,
     soilm_par_b     = 1.45602286,
