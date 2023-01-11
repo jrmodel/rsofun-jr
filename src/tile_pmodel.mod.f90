@@ -31,7 +31,7 @@ module md_tile_pmodel
     real :: forg
     real :: fgravel
     real :: fc             ! water content at field capcity(mm)
-    real :: pwp            ! water content at permenant wilting-point(mm)
+    real :: pwp            ! water content at permenant wilting-point per unit depth(unitless)
     real :: whc_dz         ! water holding capacity per unit soil depth(unitless) 
     real :: zr             ! apparent rooting depth (mm)
     real :: rzwsc          ! total root zone water storage capacity(mm) 

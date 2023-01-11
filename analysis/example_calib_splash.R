@@ -25,3 +25,23 @@ df_soilgrids <- ingest(
 
 # make df_soilgrids into the right format for p_model_drivers$params_soil[[1]]
 
+df_soilgrids <- ingest(
+  siteinfo_fluxnet2015 |> 
+    select(sitename, lon, lat) |> 
+    slice(3),
+  source    = "soilgrids",
+  settings  = settings_soilgrids
+)
+
+
+
+# my_siteinfo <-siteinfo_fluxnet2015%>% filter(siteinfo_fluxnet2015$sitename == "US-Var")
+my_siteinfo <-siteinfo_fluxnet2015 %>% filter(siteinfo_fluxnet2015$sitename == "US-Var" | siteinfo_fluxnet2015$sitename == "AU-How" |siteinfo_fluxnet2015$sitename =="IT-PT1"|siteinfo_fluxnet2015$sitename == 'DE-Tha')
+
+df_soilgrids <- ingest(
+  my_siteinfo|> 
+    select(sitename, lon, lat) |> 
+    slice(3),
+  source    = "soilgrids",
+  settings  = settings_soilgrids
+)

@@ -123,7 +123,7 @@ contains
 
       sw = kCw * max(0.0, &
            1.0- exp(-tile(lu)%soil%params%k_rzwsc* &
-           (tile(lu)%soil%phy%wcont - tile(lu)%soil%params%pwp)))
+           (tile(lu)%soil%phy%wcont - tile(lu)%soil%params%pwp  * tile(lu)%soil%params%zr)))
            !tile(lu)%soil%phy%wcont / rzwsc
 
       !---------------------------------------------------------
