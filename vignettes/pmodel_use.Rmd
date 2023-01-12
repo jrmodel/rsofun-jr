@@ -44,6 +44,18 @@ p_model_drivers
 
 p_model_validation
 
+# load("F:/ET data cleaning/fET/data/output/DE-Tha/data_frames/ddf_DE-Tha.RData")
+# 
+# 
+# load("F:/test/rsofun-jr/data/p_model_drivers.rda")
+# load("F:/sofunBench/df_try.Rdata")
+
+# ddf = ddf %>%
+#   dplyr::select(date, LE_F_MDS)
+# ddf$LE_F_MDS  = ddf$LE_F_MDS * 86400              # change units from heat flux W/m2 to J(per day)
+# # p_model_validation$data[[1]] = p_model_validation$data[[1]] %>%
+# #   left_join(ddf, by = "date")
+
 load("F:/test/rsofun-jr/data/ddf_FR-Pue.RData")
 ddf = ddf %>%
   dplyr::select(date, LE_F_MDS)
