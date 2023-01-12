@@ -44,12 +44,35 @@ p_model_drivers
 
 p_model_validation
 
+load("F:/ET data cleaning/fET/data/output/DE-Tha/data_frames/ddf_DE-Tha.RData")
+ddf_de <- ddf
+
+load("F:/sofunBench/df_try.Rdata")
+
+p_model_validation_de=  ddf_de %>%
+  dplyr::select(date, LE_F_MDS)
+
+p_model_validation_de$LE_F_MDS = p_model_validation_de$LE_F_MDS * 86400
+
+p_model_drivers_de <- df_try %>% 
+  filter(sitename == "DE-Tha")
+
+
 load("F:/test/rsofun-jr/data/ddf_FR-Pue.RData")
 ddf = ddf %>%
   dplyr::select(date, LE_F_MDS)
 ddf$LE_F_MDS  = ddf$LE_F_MDS * 86400              # change units from heat flux W/m2 to J(per day)
 p_model_validation$data[[1]] = p_model_validation$data[[1]] %>%
   left_join(ddf, by = "date")
+
+p_model_drivers$site_info[[1]] <- p_model_drivers$site_info[[1]] |>
+  rename(rzwsc = whc)
+
+p_model_drivers_de$siteinfo[[1]] <- p_model_drivers_de$siteinfo[[1]] |>
+  rename(rzwsc = whc)
+
+
+rename(p_model_drivers_de, params_soil = df_soiltexture)
 
 
 #' 
@@ -79,6 +102,11 @@ output <- rsofun::runread_pmodel_f(
   p_model_drivers,
   par = params_modl
   )
+
+output_de <- rsofun::runread_pmodel_f(
+  p_model_drivers_de,
+  par = params_modl
+)
 
 #' 
 #' ### Plotting output
