@@ -72,7 +72,12 @@ p_model_drivers_de$siteinfo[[1]] <- p_model_drivers_de$siteinfo[[1]] |>
   rename(rzwsc = whc)
 
 
-rename(p_model_drivers_de, params_soil = df_soiltexture)
+p_model_drivers_de <- p_model_drivers_de |>
+  rename(params_soil = df_soiltexture)
+  
+  
+ p_model_drivers_de <- p_model_drivers_de |> 
+   rename(site_info  = siteinfo)
 ```
 
 These are real data from the French FR-Pue fluxnet site. Information about data structure, variable names, and their meaning and units can be found in the reference pages of `p_model_drivers` and `p_model_validation`. We can use these data to run the model, together with observations of GPP we can also parameterize `pmodel` parameters. To get your raw data into the structure used within `rsofun`, please see R packages [ingestr](https://github.com/computationales/ingestr) and [FluxDataKit](https://github.com/computationales/FluxDataKit).
@@ -102,6 +107,7 @@ output <- rsofun::runread_pmodel_f(
   p_model_drivers,
   par = params_modl
   )
+
 output_de <- rsofun::runread_pmodel_f(
   p_model_drivers_de,
   par = params_modl
